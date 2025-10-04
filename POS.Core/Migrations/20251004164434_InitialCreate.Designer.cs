@@ -12,7 +12,7 @@ using POS.Core.Data;
 namespace POS.Core.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251004164252_InitialCreate")]
+    [Migration("20251004164434_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -79,7 +79,7 @@ namespace POS.Core.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2025, 10, 4, 16, 42, 49, 452, DateTimeKind.Utc).AddTicks(7641),
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Email = "admin@pos.com",
                             IsActive = true,
                             Name = "Admin User",

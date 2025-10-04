@@ -33,7 +33,7 @@ namespace POS.Core.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "Email", "IsActive", "Name", "PasswordHash", "Role", "UpdatedAt" },
-                values: new object[] { 1, new DateTime(2025, 10, 4, 16, 42, 49, 452, DateTimeKind.Utc).AddTicks(7641), "admin@pos.com", true, "Admin User", "$2a$11$rZ1f6K3Z3Z3Z3Z3Z3Z3Z3OMqH6K3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z", "Admin", null });
+                values: new object[] { 1, new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "admin@pos.com", true, "Admin User", "$2a$11$rZ1f6K3Z3Z3Z3Z3Z3Z3Z3OMqH6K3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z", "Admin", null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_Email",
