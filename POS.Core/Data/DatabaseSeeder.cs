@@ -25,6 +25,12 @@ public class DatabaseSeeder
         {
             await SeedProductsAsync();
         }
+
+        // Seed shops if not exists
+        if (!await _context.Shops.AnyAsync())
+        {
+            await SeedShopsAsync();
+        }
         
         // Save all changes
         await _context.SaveChangesAsync();
@@ -197,6 +203,65 @@ public class DatabaseSeeder
         };
 
         await _context.Products.AddRangeAsync(products);
+    }
+
+    private async Task SeedShopsAsync()
+    {
+        // Get the shop users (already created in SeedUsersAsync)
+        var downtownUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == "downtown@mithai.com");
+        var mallUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == "mall@mithai.com");
+        var suburbUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == "suburb@mithai.com");
+
+        var shops = new List<Shop>
+        {
+            new Shop
+            {
+                Name = "Downtown Mithai Shop",
+                Email = "downtown@mithai.com",
+                Phone = "+1-555-0101",
+                Address = "123 Main Street, Downtown",
+                ContactPerson = "Raj Kumar",
+                City = "Mumbai",
+                State = "Maharashtra",
+                ZipCode = "400001",
+                Balance = 5000.00m,
+                UserId = downtownUser?.Id,
+                IsActive = true,
+                CreatedAt = new DateTime(2025, 1, 2, 0, 0, 0, DateTimeKind.Utc)
+            },
+            new Shop
+            {
+                Name = "Mall Mithai Shop",
+                Email = "mall@mithai.com",
+                Phone = "+1-555-0102",
+                Address = "456 Shopping Mall, 2nd Floor",
+                ContactPerson = "Priya Sharma",
+                City = "Mumbai",
+                State = "Maharashtra",
+                ZipCode = "400002",
+                Balance = 7500.00m,
+                UserId = mallUser?.Id,
+                IsActive = true,
+                CreatedAt = new DateTime(2025, 1, 2, 0, 0, 0, DateTimeKind.Utc)
+            },
+            new Shop
+            {
+                Name = "Suburb Mithai Shop",
+                Email = "suburb@mithai.com",
+                Phone = "+1-555-0103",
+                Address = "789 Suburb Road, North Zone",
+                ContactPerson = "Amit Patel",
+                City = "Mumbai",
+                State = "Maharashtra",
+                ZipCode = "400003",
+                Balance = 3000.00m,
+                UserId = suburbUser?.Id,
+                IsActive = true,
+                CreatedAt = new DateTime(2025, 1, 2, 0, 0, 0, DateTimeKind.Utc)
+            }
+        };
+
+        await _context.Shops.AddRangeAsync(shops);
     }
 }
 
