@@ -63,9 +63,9 @@ dotnet run
 ```
 
 The API will start at:
-- **HTTPS**: https://localhost:7XXX
-- **HTTP**: http://localhost:5XXX
-- **Swagger UI**: https://localhost:7XXX/swagger
+- **HTTP**: http://localhost:5216
+- **HTTPS**: https://localhost:7173
+- **Swagger UI**: http://localhost:5216/swagger *(opens automatically)* 🚀
 
 ## 📡 API Endpoints
 
@@ -122,14 +122,17 @@ Health check endpoint.
 
 ## 🔐 Test Credentials
 
-The database is seeded with 9 test users:
+The database is **automatically seeded on first run** with 9 test users:
 
 **Quick Access:**
 - Admin: `admin@cxp.com` / `Admin123!`
 - Shop: `downtown@mithai.com` / `shop123`
 - User: `test@test.com` / `test123`
 
-📄 **See [TEST-CREDENTIALS.md](TEST-CREDENTIALS.md) for complete list with all roles and passwords**
+📄 **See [TEST-CREDENTIALS.md](TEST-CREDENTIALS.md) for complete list**  
+🌱 **See [DATABASE-SEEDER.md](DATABASE-SEEDER.md) for seeding implementation**
+
+> **Note:** Seeding only runs if the Users table is empty. No duplicate data will be created!
 
 ## 🧪 Testing with cURL
 

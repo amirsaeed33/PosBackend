@@ -17,15 +17,7 @@ public class AuthController : ControllerBase
         _logger = logger;
     }
 
-    /// <summary>
-    /// User login endpoint
-    /// </summary>
-    /// <param name="request">Login credentials</param>
-    /// <returns>Login response with user data and token</returns>
     [HttpPost("login")]
-    [ProducesResponseType(typeof(LoginResponse), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<LoginResponse>> Login([FromBody] LoginRequest request)
     {
         try
@@ -60,9 +52,7 @@ public class AuthController : ControllerBase
         }
     }
 
-    /// <summary>
-    /// Health check endpoint
-    /// </summary>
+
     [HttpGet("health")]
     public IActionResult Health()
     {

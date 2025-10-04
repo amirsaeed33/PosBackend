@@ -27,8 +27,10 @@ Once started, the API will be available at:
 
 - **HTTP**: http://localhost:5216
 - **HTTPS**: https://localhost:7173
-- **Swagger UI**: http://localhost:5216/swagger
+- **Swagger UI**: http://localhost:5216/swagger *(opens automatically)* 🚀
 - **Health Check**: http://localhost:5216/api/auth/health
+
+> **Note:** Swagger UI will automatically open in your default browser when the API starts!
 
 ---
 
@@ -118,11 +120,20 @@ curl -X POST http://localhost:5216/api/auth/login \
 - Email: `test@test.com` / Password: `test123` (Role: User)
 - Email: `john.doe@example.com` / Password: `user123` (Role: User)
 
-📄 **See [TEST-CREDENTIALS.md](TEST-CREDENTIALS.md) for complete list of all 9 test users**
+📄 **See [TEST-CREDENTIALS.md](TEST-CREDENTIALS.md) for complete list of all 9 test users**  
+🌱 **See [DATABASE-SEEDER.md](DATABASE-SEEDER.md) for how automatic seeding works**
+
+> **Auto-Seeding:** The API automatically seeds test data on first run if the database is empty!
 
 ---
 
 ## 🐛 Troubleshooting
+
+### Swagger Doesn't Open Automatically?
+If the browser doesn't open automatically:
+1. Manually navigate to http://localhost:5216/swagger
+2. Check if another browser is set as default
+3. Verify `launchBrowser: true` in `POS.API/Properties/launchSettings.json`
 
 ### Port Already in Use?
 Edit `POS.API/Properties/launchSettings.json` and change the port numbers:
