@@ -22,6 +22,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Register Services
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 // Configure CORS
 builder.Services.AddCors(options =>
@@ -70,9 +71,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "POS API v1"));
 }
 
-app.UseHttpsRedirection();
-
+// IMPORTANT: CORS must be called before UseHttpsRedirection and UseAuthorization
 app.UseCors("AllowAngular");
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
