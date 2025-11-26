@@ -36,4 +36,9 @@ public class UserDto : EntityDto<long>
     public DateTime CreationTime { get; set; }
 
     public string[] RoleNames { get; set; }
+
+    /// <summary>
+    /// Profile picture URL (can be base64 encoded image or external URL)
+    /// </summary>
+    public string ProfilePictureUrl { get; set; }
 }

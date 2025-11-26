@@ -9,6 +9,11 @@ public class User : AbpUser<User>
 {
     public const string DefaultPassword = "123qwe";
 
+    /// <summary>
+    /// Profile picture URL (can be base64 encoded image or external URL)
+    /// </summary>
+    public string ProfilePictureUrl { get; set; }
+
     public static string CreateRandomPassword()
     {
         return Guid.NewGuid().ToString("N").Truncate(16);

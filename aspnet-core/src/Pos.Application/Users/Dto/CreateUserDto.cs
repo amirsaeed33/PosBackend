@@ -36,6 +36,11 @@ public class CreateUserDto : IShouldNormalize
     [DisableAuditing]
     public string Password { get; set; }
 
+    /// <summary>
+    /// Profile picture URL (can be base64 encoded image or external URL)
+    /// </summary>
+    public string ProfilePictureUrl { get; set; }
+
     public void Normalize()
     {
         if (RoleNames == null)
